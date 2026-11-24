@@ -1,0 +1,10 @@
+.atomo-btn-claim {
+  background-color: #ffffff;
+  color: #111827;
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  cursor: pointer;
+}
