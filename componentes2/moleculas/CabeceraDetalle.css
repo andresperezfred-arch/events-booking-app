@@ -1,0 +1,87 @@
+.molecula-cabecera-detalle {
+  background-color: #ffffff;
+}
+
+.detalle-hero-box {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  overflow: hidden;
+}
+
+.detalle-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detalle-hero-top {
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-hero-oscuro {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 500;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pill-view-all-blanca {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  color: #430a7a;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 22px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.detalle-info-principal {
+  padding: 18px 18px 14px 18px;
+}
+
+.detalle-titulo {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.detalle-direccion {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+.detalle-pildoras-fila {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

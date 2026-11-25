@@ -1,0 +1,87 @@
+"use client";
+
+import { useState } from "react";
+import BotonHorario from "../atomos/BotonHorario";
+import "./SelectorHorarios.css";
+
+interface SelectorHorariosProps {
+  onSelectHora: (datos: { invitados: string; fecha: string; hora: string }) => void;
+}
+
+export default function SelectorHorarios({ onSelectHora }: SelectorHorariosProps) {
+  const [invitados, setInvitados] = useState("2 Guests");
+  const [fecha, setFecha] = useState("Today");
+
+  const horasLunch = ["1:00 pm", "1:30 pm", "2:00 pm",
+    "2:30 pm", "3:00 pm", "3:30 pm",
+    "4:00 pm", "4:30 pm", "5:30 pm",];
+  const horasDinner = ["6:00 pm", "6:30 pm", "7:00 pm",
+    "7:30 pm", "8:00 pm", "8:30 pm",
+    "9:00 pm", "9:30 pm", "10:00 pm",
+    "10:30 pm", "11:00 pm", "11:30 pm",];
+
+  return (
+    <section className="molecula-selector-horarios">
+      <div className="filtros-reserva-grid">
+        <div className="caja-select-reserva">
+          <div className="select-izquierda">
+            <img src="/grupo_personas.svg" alt="" style={{ width: "16px", height: "16px" }} />
+            <select
+              className="select-nativo"
+              value={invitados}
+              onChange={(e) => setInvitados(e.target.value)}
+            >
+              <option value="2 Guests">2 Guests</option>
+              <option value="3 Guests">3 Guests</option>
+              <option value="4 Guests">4 Guests</option>
+              <option value="6 Guests">6 Guests</option>
+            </select>
+          </div>
+          <img src="/flecha_abajo.svg" alt="" style={{ width: "12px", height: "12px" }} />
+        </div>
+
+        <div className="caja-select-reserva">
+          <div className="select-izquierda">
+            <img src="/calendar.svg" alt="" style={{ width: "16px", height: "16px" }} />
+            <select
+              className="select-nativo"
+              value={fecha}
+              onChange={(e) => setFecha(e.target.value)}
+            >
+              <option value="Today">Today</option>
+              <option value="Wed, July 18">Wed, July 18</option>
+              <option value="Thu, July 19">Thu, July 19</option>
+              <option value="Fri, July 20">Fri, July 20</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div className="bloque-turno">
+        <h2 className="turno-titulo">Lunch</h2>
+        <div className="grid-horas">
+          {horasLunch.map((hora) => (
+            <BotonHorario
+              key={hora}
+              hora={hora}
+              onSelect={(h) => onSelectHora({ invitados, fecha, hora: h })}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="bloque-turno" style={{ marginBottom: 0 }}>
+        <h2 className="turno-titulo">Dinner</h2>
+        <div className="grid-horas">
+          {horasDinner.map((hora) => (
+            <BotonHorario
+              key={hora}
+              hora={hora}
+              onSelect={(h) => onSelectHora({ invitados, fecha, hora: h })}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

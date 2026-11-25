@@ -1,0 +1,58 @@
+.molecula-selector-horarios {
+  padding: 6px 18px 18px 18px;
+  background-color: #ffffff;
+  border-bottom: 8px solid #f3f4f6;
+}
+
+.filtros-reserva-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 16px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.caja-select-reserva {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+}
+
+.select-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.select-nativo {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #430a7a;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  field-sizing: content;
+  padding: 0;
+}
+
+
+.bloque-turno {
+  margin-bottom: 18px;
+}
+
+.turno-titulo {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.grid-horas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}

@@ -1,0 +1,17 @@
+.atomo-btn-horario {
+  background-color: #430a7a;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 8px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.atomo-btn-horario:hover {
+  opacity: 0.9;
+}

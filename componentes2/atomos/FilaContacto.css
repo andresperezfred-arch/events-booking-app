@@ -1,0 +1,8 @@
+.atomo-fila-contacto {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 13px;
+  color: #374151;
+}
