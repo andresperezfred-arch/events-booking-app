@@ -1,0 +1,157 @@
+@keyframes popEntradaModal {
+  0% {
+    opacity: 0;
+    transform: scale(0.78) translateY(16px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.03) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes reboteMedalla {
+  0% {
+    transform: scale(0.4) rotate(-15deg);
+  }
+  60% {
+    transform: scale(1.15) rotate(8deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes explosionConfeti {
+  0% {
+    top: 45%;
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) scale(0.6);
+  }
+  25% {
+    top: 5%;
+    opacity: 1;
+    transform: translateY(-10px) rotate(140deg) scale(1.1);
+  }
+  100% {
+    top: 115%;
+    opacity: 0;
+    transform: translateY(40px) rotate(360deg) scale(0.9);
+  }
+}
+
+.modal-overlay-oscuro {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(17, 24, 39, 0.52);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 50;
+}
+
+.modal-tarjeta-blanca {
+  width: 100%;
+  max-width: 345px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+}
+
+.animacion-pop-modal {
+  animation: popEntradaModal 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.modal-cabecera-confeti {
+  position: relative;
+  width: 100%;
+  height: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.modal-img-confeti {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.capa-confeti-animado {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particula-confeti {
+  position: absolute;
+  top: 45%;
+  width: 8px;
+  height: 14px;
+  border-radius: 2px;
+  animation-name: explosionConfeti;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 2;
+}
+
+.modal-img-medalla {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.animacion-medalla {
+  animation: reboteMedalla 0.55s ease-out forwards;
+}
+
+.btn-cerrar-modal-morado {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.modal-cuerpo-texto {
+  padding: 4px 22px 26px 22px;
+  text-align: center;
+}
+
+.modal-puntos-titulo {
+  font-size: 32px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.modal-puntos-titulo span {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.modal-puntos-texto {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.45;
+  margin-bottom: 22px;
+}

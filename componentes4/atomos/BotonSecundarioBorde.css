@@ -1,0 +1,11 @@
+.atomo-btn-secundario-borde {
+  width: 100%;
+  background-color: #ffffff;
+  color: #3b0764;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1.5px solid #3b0764;
+  border-radius: 10px;
+  padding: 13px;
+  cursor: pointer;
+}

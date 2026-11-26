@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BotonHorario from "../atomos/BotonHorario";
 import "./SelectorHorarios.css";
 
@@ -13,6 +13,13 @@ export default function SelectorHorarios({ onSelectHora }: SelectorHorariosProps
   const [fecha, setFecha] = useState("Today");
   const [abiertoInvitados, setAbiertoInvitados] = useState(false);
   const [abiertoFecha, setAbiertoFecha] = useState(false);
+
+  useEffect(() => {
+    setInvitados("2 Guests");
+    setFecha("Today");
+    setAbiertoInvitados(false);
+    setAbiertoFecha(false);
+  }, []);
 
   const opcionesInvitados = ["2 Guests", "3 Guests", "4 Guests", "5 Guests", "6 Guests"];
   const opcionesFecha = ["Today", "Wed, July 18", "Thu, July 19", "Fri, July 20"];
@@ -32,7 +39,6 @@ export default function SelectorHorarios({ onSelectHora }: SelectorHorariosProps
   return (
     <section className="molecula-selector-horarios">
       <div className="filtros-reserva-grid">
-        {/* Selector personalizado de Invitados */}
         <div className="dropdown-contenedor">
           <button
             type="button"
@@ -75,7 +81,6 @@ export default function SelectorHorarios({ onSelectHora }: SelectorHorariosProps
           )}
         </div>
 
-        {/* Selector personalizado de Fecha */}
         <div className="dropdown-contenedor">
           <button
             type="button"

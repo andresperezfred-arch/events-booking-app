@@ -1,29 +1,55 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CampoTexto from "../atomos/CampoTexto";
 import BotonMoradoGrande from "../atomos/BotonMoradoGrande";
 import "./FormularioDinnerDetails.css";
 
+interface DatosFormulario {
+  fullName: string;
+  email: string;
+  phone: string;
+  occasion: string;
+  specialRequest: string;
+}
+
 interface FormularioDinnerDetailsProps {
-  onProceed: (datosFormulario: {
-    fullName: string;
-    email: string;
-    phone: string;
-    occasion: string;
-    specialRequest: string;
-  }) => void;
+  datosIniciales?: DatosFormulario;
+  onProceed: (datosFormulario: DatosFormulario) => void;
 }
 
 export default function FormularioDinnerDetails({
+  datosIniciales,
   onProceed,
 }: FormularioDinnerDetailsProps) {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [occasion, setOccasion] = useState("");
-  const [specialRequest, setSpecialRequest] = useState("");
-  const [aceptoTerminos, setAceptoTerminos] = useState(false);
+  const [fullName, setFullName] = useState(datosIniciales?.fullName || "");
+  const [email, setEmail] = useState(datosIniciales?.email || "");
+  const [phone, setPhone] = useState(datosIniciales?.phone || "");
+  const [occasion, setOccasion] = useState(datosIniciales?.occasion || "");
+  const [abiertoOccasion, setAbiertoOccasion] = useState(false);
+  const [specialRequest, setSpecialRequest] = useState(datosIniciales?.specialRequest || "");
+  const [aceptoTerminos, setAceptoTerminos] = useState(Boolean(datosIniciales));
+
+  const opcionesOccasion = ["Birthday", "Anniversary", "Business Dinner", "Date Night"];
+
+  useEffect(() => {
+    if (datosIniciales) {
+      setFullName(datosIniciales.fullName);
+      setEmail(datosIniciales.email);
+      setPhone(datosIniciales.phone);
+      setOccasion(datosIniciales.occasion);
+      setSpecialRequest(datosIniciales.specialRequest);
+      setAceptoTerminos(true);
+    } else {
+      setFullName("");
+      setEmail("");
+      setPhone("");
+      setOccasion("");
+      setSpecialRequest("");
+      setAceptoTerminos(false);
+    }
+    setAbiertoOccasion(false);
+  }, [datosIniciales]);
 
   const handleContinuar = () => {
     if (!fullName.trim() || !email.trim() || !phone.trim()) {
@@ -44,7 +70,7 @@ export default function FormularioDinnerDetails({
   };
 
   return (
-    <section className="molecula-form-dinner">
+    <form className="molecula-form-dinner" autoComplete="off" onSubmit={(e) => e.preventDefault()}>
       <h2 className="form-dinner-titulo">Dinner Details</h2>
 
       <CampoTexto
@@ -75,6 +101,7 @@ export default function FormularioDinnerDetails({
           </div>
           <input
             type="tel"
+            autoComplete="new-password"
             className="telefono-input"
             placeholder="Enter your Phone Number"
             value={phone}
@@ -86,23 +113,43 @@ export default function FormularioDinnerDetails({
       <div className="atomo-campo-grupo">
         <label className="atomo-campo-label">Select an Occasion (Optional)</label>
         <div className="select-occasion-box">
-          <select
-            className="select-occasion"
-            value={occasion}
-            onChange={(e) => setOccasion(e.target.value)}
+          <button
+            type="button"
+            className="btn-occasion-moderno"
+            onClick={() => setAbiertoOccasion(!abiertoOccasion)}
           >
-            <option value="">Select Occasion</option>
-            <option value="Birthday">Birthday</option>
-            <option value="Anniversary">Anniversary</option>
-            <option value="Business Dinner">Business Dinner</option>
-            <option value="Date Night">Date Night</option>
-          </select>
-          <img
-            src="/flecha_abajo.svg"
-            alt=""
-            className="select-occasion-flecha"
-            style={{ width: "12px", height: "12px" }}
-          />
+            <span style={{ color: occasion ? "#111827" : "#9ca3af" }}>
+              {occasion || "Select Occasion"}
+            </span>
+            <img
+              src="/flecha_abajo.svg"
+              alt=""
+              style={{
+                width: "12px",
+                height: "12px",
+                transform: abiertoOccasion ? "rotate(180deg)" : "rotate(0deg)",
+                transition: "transform 0.2s",
+              }}
+            />
+          </button>
+
+          {abiertoOccasion && (
+            <div className="lista-occasion-flotante">
+              {opcionesOccasion.map((op) => (
+                <button
+                  key={op}
+                  type="button"
+                  className={`item-occasion-opcion ${occasion === op ? "activa" : ""}`}
+                  onClick={() => {
+                    setOccasion(op);
+                    setAbiertoOccasion(false);
+                  }}
+                >
+                  {op}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
@@ -129,6 +176,6 @@ export default function FormularioDinnerDetails({
       </div>
 
       <BotonMoradoGrande texto="Proceed" onClick={handleContinuar} />
-    </section>
+    </form>
   );
 }

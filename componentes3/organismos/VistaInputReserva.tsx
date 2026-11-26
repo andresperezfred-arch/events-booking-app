@@ -17,6 +17,17 @@ export default function VistaInputReserva() {
   const fecha = searchParams.get("fecha") || "Wed, July 18";
   const hora = searchParams.get("hora") || "8:00 PM";
 
+  const esEdicion = searchParams.get("edit") === "1";
+  const datosIniciales = esEdicion
+    ? {
+        fullName: searchParams.get("fullName") || "",
+        email: searchParams.get("email") || "",
+        phone: searchParams.get("phone") || "",
+        occasion: searchParams.get("occasion") || "",
+        specialRequest: searchParams.get("specialRequest") || "",
+      }
+    : undefined;
+
   const handleProceed = (datosFormulario: {
     fullName: string;
     email: string;
@@ -48,7 +59,10 @@ export default function VistaInputReserva() {
         fecha={fecha}
       />
 
-      <FormularioDinnerDetails onProceed={handleProceed} />
+      <FormularioDinnerDetails
+        datosIniciales={datosIniciales}
+        onProceed={handleProceed}
+      />
     </div>
   );
 }
