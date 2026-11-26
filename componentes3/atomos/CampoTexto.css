@@ -1,0 +1,45 @@
+.atomo-campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.atomo-campo-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.atomo-campo-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #111827;
+  background-color: #ffffff;
+  outline: none;
+}
+
+.atomo-campo-input:focus {
+  border-color: #430a7a;
+}
+
+.atomo-campo-textarea {
+  width: 100%;
+  min-height: 110px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #111827;
+  background-color: #ffffff;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+}
+
+.atomo-campo-textarea:focus {
+  border-color: #430a7a;
+}

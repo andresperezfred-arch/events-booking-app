@@ -14,6 +14,16 @@ export default function InfoUbicacionDetalle({ titulo }: { titulo: string }) {
 
       <div className="mapa-contenedor">
         <img src="/mapa.png" alt="Ubicación en mapa" className="mapa-img" />
+
+        {/* Pin morado de ubicación sobre el mapa */}
+        <div className="pin-mapa-superpuesto">
+          <img
+            src="/ubicacion_morado.svg"
+            alt="Pin ubicación"
+            style={{ width: "36px", height: "36px" }}
+          />
+        </div>
+
         <span className="btn-ver-mapa">
           <img src="/marca_ubi.svg" alt="" style={{ width: "16px", height: "16px" }} />
           <span>View Map Larger</span>

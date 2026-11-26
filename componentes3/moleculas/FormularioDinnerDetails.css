@@ -1,0 +1,88 @@
+.molecula-form-dinner {
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.form-dinner-titulo {
+  font-size: 17px;
+  font-weight: 700;
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+.campo-telefono-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 0 12px;
+  background-color: #ffffff;
+}
+
+.telefono-bandera-grupo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 8px;
+}
+
+.telefono-input {
+  flex: 1;
+  border: none;
+  padding: 12px 6px;
+  font-size: 13px;
+  color: #111827;
+  outline: none;
+}
+
+.select-occasion-box {
+  position: relative;
+  width: 100%;
+}
+
+.select-occasion {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #6b7280;
+  background-color: #ffffff;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.select-occasion-flecha {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.terminos-fila {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0 22px 0;
+}
+
+.terminos-check {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #3b0764;
+  cursor: pointer;
+}
+
+.terminos-texto {
+  font-size: 12px;
+  color: #4b5563;
+  line-height: 1.4;
+}
+
+.terminos-link {
+  color: #3b0764;
+  font-weight: 700;
+}
